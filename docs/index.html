@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LeetCode + NeetCode Practice</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header id="topbar">
+      <div class="brand"><span class="logo">&lt;/&gt;</span> LeetCode + NeetCode Practice</div>
+      <div class="nav">
+        <button id="btn-prev" class="icon-btn" title="Previous problem">&#8249;</button>
+        <button id="btn-next" class="icon-btn" title="Next problem">&#8250;</button>
+        <button id="btn-random" class="icon-btn" title="Random unsolved problem">&#8645;</button>
+      </div>
+      <div class="spacer"></div>
+      <div id="progress" class="progress-wrap" title="Solved problems (in the current filter)">
+        <div class="progress-bar"><div id="progress-fill"></div></div>
+        <span id="progress-text">0 / 0 solved</span>
+      </div>
+    </header>
+
+    <div id="body">
+      <aside id="sidebar">
+        <div id="side-controls">
+          <input id="search" type="search" placeholder="Search problems..." autocomplete="off" />
+          <select id="filter-list" title="Which problem list to show"></select>
+          <label class="check"><input id="only-unsolved" type="checkbox" /> Unsolved only</label>
+        </div>
+        <div id="group-list"></div>
+      </aside>
+
+      <main id="main">
+        <section id="left">
+          <div id="problem"></div>
+        </section>
+        <div class="resizer v" id="rz-v"></div>
+        <section id="right">
+          <div id="editor-bar">
+            <select id="lang" title="Language"></select>
+            <button id="btn-reset" class="ghost" title="Reset to the starter code">Reset</button>
+            <div id="lang-warning" class="warn hidden"></div>
+            <div class="spacer"></div>
+            <button id="btn-run" class="btn" title="Run the examples (Ctrl/Cmd + ')">&#9654; Run</button>
+            <button id="btn-submit" class="btn primary" title="Run all tests (Ctrl/Cmd + Enter)">&#8679; Submit</button>
+          </div>
+          <div id="editor"></div>
+          <div class="resizer h" id="rz-h"></div>
+          <div id="results">
+            <div id="result-tabs">
+              <button data-tab="cases" class="tab active">Testcase</button>
+              <button data-tab="result" class="tab">Result</button>
+            </div>
+            <div id="result-body"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="problems-data.js"></script>
+  <script src="links-data.js"></script>
+  <script src="lang.js"></script>
+  <script src="compare.js"></script>
+  <script src="web-api.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

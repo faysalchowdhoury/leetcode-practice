@@ -1,0 +1,69 @@
+{
+  "name": "leetcode150-practice",
+  "version": "1.0.0",
+  "description": "Offline practice app: 150 interview problems in 28 pattern groups, with a code editor and local test runner",
+  "main": "main.js",
+  "author": "you",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build-data": "python3 authoring/build.py",
+    "dist": "electron-builder",
+    "dist:win": "electron-builder --win",
+    "dist:mac": "electron-builder --mac"
+  },
+  "dependencies": {
+    "monaco-editor": "^0.52.0"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.practice.leetcode150",
+    "productName": "LeetCode Practice",
+    "files": [
+      "main.js",
+      "preload.js",
+      "shared/**/*",
+      "runner/**/*",
+      "renderer/**/*",
+      "node_modules/monaco-editor/min/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "signAndEditExecutable": false
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "universal"
+          ]
+        }
+      ],
+      "category": "public.app-category.developer-tools",
+      "identity": null
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "runAfterFinish": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "directories": {
+      "output": "dist"
+    },
+    "artifactName": "LeetCode-Practice-Setup-${version}-${arch}.${ext}",
+    "publish": null
+  }
+}
